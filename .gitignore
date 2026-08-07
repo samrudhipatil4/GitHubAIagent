@@ -1,0 +1,11 @@
+node_modules/
+client/node_modules/
+.env
+dist/
+client/dist/
+logs/
+*.log
+.DS_Store
+coverage/
+.vscode/
+.idea/

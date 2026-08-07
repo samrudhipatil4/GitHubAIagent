@@ -1,0 +1,80 @@
+{
+  "info": {
+    "name": "AI GitHub Assistant - Phase 4",
+    "description": "Pull request endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Pull Requests",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/pulls?state=open",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "repos", "{{owner}}", "{{repo}}", "pulls"],
+          "query": [{ "key": "state", "value": "open" }]
+        }
+      }
+    },
+    {
+      "name": "Get Pull Request",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/pulls/{{number}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "repos", "{{owner}}", "{{repo}}", "pulls", "{{number}}"]
+        }
+      }
+    },
+    {
+      "name": "Get PR Files",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/pulls/{{number}}/files",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "repos", "{{owner}}", "{{repo}}", "pulls", "{{number}}", "files"]
+        }
+      }
+    },
+    {
+      "name": "Get PR Comments",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/pulls/{{number}}/comments",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "repos", "{{owner}}", "{{repo}}", "pulls", "{{number}}", "comments"]
+        }
+      }
+    },
+    {
+      "name": "Merge Pull Request",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"mergeMethod\": \"merge\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/pulls/{{number}}/merge",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "repos", "{{owner}}", "{{repo}}", "pulls", "{{number}}", "merge"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "owner", "value": "your-username" },
+    { "key": "repo", "value": "your-repo" },
+    { "key": "number", "value": "1" }
+  ]
+}

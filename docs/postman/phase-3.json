@@ -1,0 +1,77 @@
+{
+  "info": {
+    "name": "AI GitHub Assistant - Phase 3",
+    "description": "Repository endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Repositories",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/repos?page=1",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "repos"],
+          "query": [{ "key": "page", "value": "1" }]
+        },
+        "description": "Requires authenticated session cookie"
+      }
+    },
+    {
+      "name": "Search Repositories",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/repos/search?q=react",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "repos", "search"],
+          "query": [{ "key": "q", "value": "react" }]
+        }
+      }
+    },
+    {
+      "name": "Get Repository",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "repos", "{{owner}}", "{{repo}}"]
+        }
+      }
+    },
+    {
+      "name": "Get Repository Stats",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/stats",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "repos", "{{owner}}", "{{repo}}", "stats"]
+        }
+      }
+    },
+    {
+      "name": "Get Contributors",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/contributors",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "repos", "{{owner}}", "{{repo}}", "contributors"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "owner", "value": "your-username" },
+    { "key": "repo", "value": "your-repo" }
+  ]
+}
