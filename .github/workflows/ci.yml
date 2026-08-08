@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install backend dependencies
+        run: npm ci
+
+      - name: Install frontend dependencies
+        run: npm ci --prefix client
+
+      - name: Build frontend
+        run: npm run build:client
+
+      - name: Syntax check backend
+        run: |
+          node --check src/server.js
+          node --check src/app.js
+
+      - name: Build Docker image
+        run: docker build -t ai-github-assistant:ci .
+
+      - name: Smoke test container
+        run: |
+          docker run -d --name app-test -p 3001:3000 \
+            -e NODE_ENV=production \
+            -e SESSION_SECRET=ci-test-secret \
+            -e CLIENT_URL=http://localhost:3001 \
+            ai-github-assistant:ci
+          sleep 5
+          curl -sf http://localhost:3001/api/v1/health
+          docker stop app-test
