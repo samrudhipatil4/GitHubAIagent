@@ -12,7 +12,9 @@ An AI-powered GitHub Assistant that enables developers to manage repositories, p
 - **AI Chat** — Natural language GitHub operations (Phase 7)
 - **AI Code Review** — Automated PR analysis (Phase 8)
 - **Repository Insights** — AI summaries and analytics (Phase 9)
-- **MCP Integration** — Model Context Protocol support (Phase 10)
+- **MCP Integration** — Model Context Protocol for AI tools (Phase 10)
+- **Memory & Preferences** — Saved settings and activity (Phase 10)
+- **GitHub Actions Assistant** — Workflow monitoring and AI failure analysis (Phase 10)
 
 ## Tech Stack
 
@@ -95,6 +97,16 @@ npm run dev:all
 5. Set a strong `SESSION_SECRET`
 6. Restart the backend and click **Sign in with GitHub**
 
+### AI Chat Setup (Phase 7)
+
+1. Get a Gemini API key at https://aistudio.google.com/apikey
+2. Add to `.env`:
+   ```
+   GEMINI_API_KEY=your_gemini_api_key
+   AI_MODEL=gemini-2.0-flash
+   ```
+3. Restart backend and open **AI Chat** in the sidebar
+
 ### Docker
 
 ```bash
@@ -128,12 +140,12 @@ docker compose up --build
 | 2 | ✅ Complete | GitHub OAuth & dashboard |
 | 3 | ✅ Complete | Repository module |
 | 4 | ✅ Complete | Pull request module |
-| 5 | Pending | Issues module |
-| 6 | Pending | Commits & branches |
-| 7 | Pending | AI chat & tool calling |
-| 8 | Pending | AI code review |
-| 9 | Pending | Repository insights |
-| 10 | Pending | MCP, memory & deployment |
+| 5 | ✅ Complete | Issues module |
+| 6 | ✅ Complete | Commits & branches |
+| 7 | ✅ Complete | AI chat & tool calling |
+| 8 | ✅ Complete | AI code review |
+| 9 | ✅ Complete | Repository insights |
+| 10 | ✅ Complete | MCP, memory & deployment |
 
 See [docs/](docs/) for detailed phase documentation.
 

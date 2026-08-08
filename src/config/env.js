@@ -13,6 +13,12 @@ export const env = {
   GITHUB_CALLBACK_URL:
     process.env.GITHUB_CALLBACK_URL ||
     'http://localhost:3000/api/v1/auth/github/callback',
+  GEMINI_API_KEY: process.env.GEMINI_API_KEY || '',
+  OPENAI_API_KEY: process.env.OPENAI_API_KEY || '',
+  AI_PROVIDER: process.env.AI_PROVIDER || 'gemini',
+  AI_MODEL: process.env.AI_MODEL || 'gemini-2.0-flash',
+  USE_MCP: process.env.USE_MCP !== 'false',
+  RATE_LIMIT_MAX: parseInt(process.env.RATE_LIMIT_MAX, 10) || 100,
   isDevelopment: (process.env.NODE_ENV || 'development') === 'development',
   isProduction: process.env.NODE_ENV === 'production',
 };

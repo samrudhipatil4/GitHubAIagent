@@ -91,8 +91,8 @@ PR Detail → Click "AI Review" → POST /review
 
 ## Status
 
-- [ ] Code review service
-- [ ] Review prompts
-- [ ] Review endpoint
-- [ ] Frontend review screen
-- [ ] Integration with PR detail page
+- [x] Code review service
+- [x] Review prompts
+- [x] Review endpoint
+- [x] Frontend review screen
+- [x] Integration with PR detail page

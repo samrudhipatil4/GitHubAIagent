@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import { env } from './config/env.js';
 import { sessionMiddleware } from './config/session.js';
 import routes from './routes/index.js';
+import { rateLimitMiddleware } from './middleware/rateLimitMiddleware.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
 
@@ -32,7 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan(env.isDevelopment ? 'dev' : 'combined'));
 app.use(sessionMiddleware);
-
+app.use('/api/v1', rateLimitMiddleware(env.RATE_LIMIT_MAX));
 app.use('/api/v1', routes);
 
 if (env.isProduction) {

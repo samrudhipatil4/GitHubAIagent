@@ -51,8 +51,8 @@
 
 ## Status
 
-- [ ] Commit service
-- [ ] Branch service
-- [ ] Controllers and routes
-- [ ] Frontend commits page
-- [ ] Frontend branches page
+- [x] Commit service
+- [x] Branch service
+- [x] Controllers and routes
+- [x] Frontend commits page
+- [x] Frontend branches page

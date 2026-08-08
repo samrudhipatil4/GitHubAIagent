@@ -7,6 +7,7 @@ import {
   GitCommitHorizontal,
   MessageSquare,
   ScanSearch,
+  Workflow,
   Settings,
   Bot,
   LogOut,
@@ -21,6 +22,7 @@ const navItems = [
   { to: '/commits', label: 'Commits', icon: GitCommitHorizontal },
   { to: '/chat', label: 'AI Chat', icon: MessageSquare },
   { to: '/code-review', label: 'Code Review', icon: ScanSearch },
+  { to: '/actions', label: 'Actions', icon: Workflow },
   { to: '/settings', label: 'Settings', icon: Settings },
 ];
 

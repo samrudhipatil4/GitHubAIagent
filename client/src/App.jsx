@@ -10,9 +10,14 @@ import RepositoryDetail from './pages/RepositoryDetail';
 import PullRequests from './pages/PullRequests';
 import PullRequestDetail from './pages/PullRequestDetail';
 import Issues from './pages/Issues';
+import IssueCreate from './pages/IssueCreate';
+import IssueDetail from './pages/IssueDetail';
 import Commits from './pages/Commits';
+import CommitDetail from './pages/CommitDetail';
 import Chat from './pages/Chat';
 import CodeReview from './pages/CodeReview';
+import PRReview from './pages/PRReview';
+import Actions from './pages/Actions';
 import SettingsPage from './pages/Settings';
 
 export default function App() {
@@ -32,9 +37,14 @@ export default function App() {
           <Route path="/pull-requests" element={<PullRequests />} />
           <Route path="/pull-requests/:owner/:repo/:number" element={<PullRequestDetail />} />
           <Route path="/issues" element={<Issues />} />
+          <Route path="/issues/:owner/:repo/new" element={<IssueCreate />} />
+          <Route path="/issues/:owner/:repo/:number" element={<IssueDetail />} />
           <Route path="/commits" element={<Commits />} />
+          <Route path="/commits/:owner/:repo/:sha" element={<CommitDetail />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/code-review" element={<CodeReview />} />
+          <Route path="/code-review/:owner/:repo/:number" element={<PRReview />} />
+          <Route path="/actions" element={<Actions />} />
           <Route path="/settings" element={<SettingsPage />} />
         </Route>
       </Route>

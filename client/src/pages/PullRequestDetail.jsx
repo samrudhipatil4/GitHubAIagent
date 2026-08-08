@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft,
   ExternalLink,
@@ -22,6 +22,7 @@ const TABS = [
 
 export default function PullRequestDetail() {
   const { owner, repo, number } = useParams();
+  const navigate = useNavigate();
   const [pullRequest, setPullRequest] = useState(null);
   const [files, setFiles] = useState([]);
   const [comments, setComments] = useState([]);
@@ -172,7 +173,10 @@ export default function PullRequestDetail() {
               View on GitHub
               <ExternalLink className="h-4 w-4" />
             </a>
-            <button disabled className="btn-secondary opacity-50" title="Available in Phase 8">
+            <button
+              onClick={() => navigate(`/code-review/${owner}/${repo}/${number}`)}
+              className="btn-secondary"
+            >
               <ScanSearch className="h-4 w-4" />
               AI Review
             </button>

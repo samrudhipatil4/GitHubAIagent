@@ -5,6 +5,7 @@ import {
   getRepositoryStats,
   getContributors,
 } from '../services/github/repositoryService.js';
+import { trackRepositoryAccess } from '../services/memory/memoryService.js';
 import { successResponse } from '../utils/apiResponse.js';
 import { AppError } from '../utils/AppError.js';
 
@@ -44,6 +45,7 @@ export const getRepoDetails = async (req, res, next) => {
   try {
     const { owner, repo } = req.params;
     const repository = await getRepository(req.accessToken, owner, repo);
+    trackRepositoryAccess(req.session.user.id, owner, repo);
     return successResponse(res, 'Repository retrieved successfully', { repository });
   } catch (error) {
     next(error);

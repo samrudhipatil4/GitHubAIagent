@@ -52,8 +52,8 @@ Issues Page → GET /issues → Display list
 
 ## Status
 
-- [ ] Issue service
-- [ ] Issue controller and routes
-- [ ] Frontend issue list page
-- [ ] Frontend issue create/edit page
-- [ ] Comment and label support
+- [x] Issue service
+- [x] Issue controller and routes
+- [x] Frontend issue list page
+- [x] Frontend issue create/edit page
+- [x] Comment and label support

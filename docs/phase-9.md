@@ -70,8 +70,15 @@
 
 ## Status
 
-- [ ] Repository insight service
-- [ ] Insight endpoints
-- [ ] Frontend insights tab
-- [ ] Dashboard widget updates
-- [ ] Chart components
+- [x] Repository insight service
+- [x] Insight endpoints
+- [x] Frontend insights tab
+- [x] Dashboard widget updates
+- [x] Chart components
+
+## Additional Endpoints
+
+| Method | Route | Description |
+|--------|-------|-------------|
+| GET | `/api/v1/repos/:owner/:repo/insights` | All insights (summary, languages, activity, stats) |
+| GET | `/api/v1/dashboard/stats` | Aggregated open PRs, issues, recent commits |

@@ -106,9 +106,9 @@ AI_MODEL=gemini-2.0-flash
 
 ## Status
 
-- [ ] AI provider abstraction
-- [ ] Gemini service integration
-- [ ] Tool definitions and manager
-- [ ] Chat agent
-- [ ] Chat endpoint
-- [ ] Frontend chat UI
+- [x] AI provider abstraction
+- [x] Gemini service integration
+- [x] Tool definitions and manager
+- [x] Chat agent
+- [x] Chat endpoint
+- [x] Frontend chat UI
