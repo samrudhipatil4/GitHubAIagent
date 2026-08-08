@@ -1,0 +1,29 @@
+{
+  "info": {
+    "name": "AI GitHub Assistant - Phase 8",
+    "description": "AI code review endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Run AI Review",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/pulls/{{number}}/review"
+      }
+    },
+    {
+      "name": "Get Cached Review",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/pulls/{{number}}/review"
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "owner", "value": "your-username" },
+    { "key": "repo", "value": "your-repo" },
+    { "key": "number", "value": "1" }
+  ]
+}

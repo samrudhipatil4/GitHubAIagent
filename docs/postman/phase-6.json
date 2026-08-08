@@ -1,0 +1,62 @@
+{
+  "info": {
+    "name": "AI GitHub Assistant - Phase 6",
+    "description": "Commits and branches endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Commits",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/commits?sha=main"
+      }
+    },
+    {
+      "name": "Get Commit",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/commits/{{sha}}"
+      }
+    },
+    {
+      "name": "List Branches",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/branches"
+      }
+    },
+    {
+      "name": "Create Branch",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"feature/test\",\n  \"sha\": \"commit-sha-here\"\n}"
+        },
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/branches"
+      }
+    },
+    {
+      "name": "Delete Branch",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/branches/feature/test"
+      }
+    },
+    {
+      "name": "Compare Branches",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/compare?base=main&head=develop"
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "owner", "value": "your-username" },
+    { "key": "repo", "value": "your-repo" },
+    { "key": "sha", "value": "commit-sha" }
+  ]
+}

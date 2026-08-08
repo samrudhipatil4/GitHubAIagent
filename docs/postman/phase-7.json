@@ -1,0 +1,39 @@
+{
+  "info": {
+    "name": "AI GitHub Assistant - Phase 7",
+    "description": "AI Chat endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Send Chat Message",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"Show my repositories\",\n  \"conversationId\": null\n}"
+        },
+        "url": "{{baseUrl}}/api/v1/chat"
+      }
+    },
+    {
+      "name": "Get Conversations",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/v1/chat/history"
+      }
+    },
+    {
+      "name": "Get Conversation Messages",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/v1/chat/history?conversationId={{conversationId}}"
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "conversationId", "value": "" }
+  ]
+}

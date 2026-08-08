@@ -1,0 +1,72 @@
+{
+  "info": {
+    "name": "AI GitHub Assistant - Phase 5",
+    "description": "Issues endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Issues",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/issues?state=open"
+      }
+    },
+    {
+      "name": "Get Issue",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/issues/{{number}}"
+      }
+    },
+    {
+      "name": "Create Issue",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Bug report\",\n  \"body\": \"Description here\",\n  \"labels\": [\"bug\"],\n  \"assignees\": []\n}"
+        },
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/issues"
+      }
+    },
+    {
+      "name": "Update Issue",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated title\"\n}"
+        },
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/issues/{{number}}"
+      }
+    },
+    {
+      "name": "Close Issue",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/issues/{{number}}/close"
+      }
+    },
+    {
+      "name": "Add Comment",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"body\": \"Thanks for reporting!\"\n}"
+        },
+        "url": "{{baseUrl}}/api/v1/repos/{{owner}}/{{repo}}/issues/{{number}}/comments"
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "owner", "value": "your-username" },
+    { "key": "repo", "value": "your-repo" },
+    { "key": "number", "value": "1" }
+  ]
+}
